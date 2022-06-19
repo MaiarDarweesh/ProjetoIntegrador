@@ -41,11 +41,11 @@ public class CategoriaController {
 				.orElse(ResponseEntity.notFound().build());	// se n tiver, da erro
 	}
 	
-	@GetMapping("/cursos/{cursos}") // metodo para pegar por uma descrica, vai usar uma rota /descricao e / para puxar o parametro
+	/*@GetMapping("/cursos/{cursos}") // metodo para pegar por uma descrica, vai usar uma rota /descricao e / para puxar o parametro
 	public ResponseEntity<List<Categoria>> GetByCategoria (@PathVariable String cursos){ 
 		return ResponseEntity.ok(repository.findAllByCursosContainingIgnoreCase(cursos)); // usa o metodo do CategoriaRepository
 	}
-	
+	*/
 	@GetMapping("/produtos/{produtos}") // metodo para pegar por uma descrica, vai usar uma rota /descricao e / para puxar o parametro
 	public ResponseEntity<List<Categoria>> GetByProduto (@PathVariable String produtos){ 
 		return ResponseEntity.ok(repository.findAllByProdutosContainingIgnoreCase(produtos)); // usa o metodo do CategoriaRepository

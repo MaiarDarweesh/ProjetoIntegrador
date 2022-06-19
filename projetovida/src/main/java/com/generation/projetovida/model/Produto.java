@@ -31,16 +31,13 @@ public class Produto {
 	private String descricao;
 	
 	@NotNull // Define que o campo não pode ter espaços vazios
-	private int quantidade;
-	
-	@NotNull // Define que o campo não pode ter espaços vazios
 	private BigDecimal preco;
 	
 	@NotBlank // Define que o campo não pode ter espaços vazios
+	@Size(min=3, max=4000, message = "O campo deve ter no minimo 3 caracteres e no maximo 4000 caracteres")
 	private String foto;
 	
 	
-
 	@ManyToOne // Varios produtos com um usuario
 	@JsonIgnoreProperties("produto") // recursividade - Ignora o termo usuário na busca
 	private Categoria categoria;
@@ -73,13 +70,6 @@ public class Produto {
 		this.descricao = descricao;
 	}
 
-	public int getQuantidade() {
-		return quantidade;
-	}
-
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
-	}
 
 	public BigDecimal getPreco() {
 		return preco;

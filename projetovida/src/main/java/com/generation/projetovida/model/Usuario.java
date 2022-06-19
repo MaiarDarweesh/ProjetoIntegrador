@@ -39,7 +39,6 @@ public class Usuario {
 		@NotBlank // Define que o campo não pode ter espaços vazios e em branco
 		private String senha;
 		
-		@NotNull // Define que o campo não pode ter espaços vazios
 		private String voluntario;
 		
 		@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL) // Um usuário para vários produtos

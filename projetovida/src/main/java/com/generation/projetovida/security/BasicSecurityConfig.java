@@ -41,12 +41,11 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
 		http.authorizeRequests()
+			.antMatchers("/**").permitAll()
 			.antMatchers("/usuario/logar").permitAll()
 			.antMatchers("/usuario/cadastrar").permitAll()
-			.antMatchers("/produto").permitAll()
-			.antMatchers("/produto/cadastrar").permitAll()
 			.antMatchers(HttpMethod.GET ,"/produto").permitAll()
-			.antMatchers(HttpMethod.GET ,"/cadastrar").permitAll()
+			.antMatchers(HttpMethod.GET ,"/categoria").permitAll()
 			.antMatchers(HttpMethod.OPTIONS).permitAll()// Vai mostar as opcoes de métooos diponieis na sua api
 			.anyRequest().authenticated()
 			.and().httpBasic()
@@ -55,11 +54,6 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 			.and().cors()// Liberar o acesso do front-end pro back-end
 			.and().csrf().disable();
 		
-		
 	}
-
-
-
-
 
 }

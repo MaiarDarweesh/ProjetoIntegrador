@@ -30,10 +30,15 @@ public class ProdutoController {
 	@Autowired
 	private ProdutoRepository repository;
 
-	@GetMapping("/all")
-	public ResponseEntity<List<Produto>> GetAll() {
-		return ResponseEntity.ok(repository.findAll());
+	@GetMapping
+	public List<Produto> getAll() {
+		return repository.findAll();
 	}
+	
+	/*@GetMapping
+	public List<Postagem> getAll() {
+		return repository.findAll();
+	}*/
 
 	@GetMapping("/{id}")
 	public ResponseEntity<Produto> GetById(@PathVariable Long id) {
@@ -45,8 +50,8 @@ public class ProdutoController {
 		return ResponseEntity.ok(repository.findAllByNomeContainingIgnoreCase(nome));
 	}
 
-	@PostMapping("/cadastrar")
-	public ResponseEntity<Produto> Post(@Valid @RequestBody Produto produto) {
+	@PostMapping
+	public ResponseEntity<Produto> postProduto(@Valid @RequestBody Produto produto) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(produto));
 	}
 

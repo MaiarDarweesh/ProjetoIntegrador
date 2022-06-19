@@ -26,9 +26,9 @@ public class Categoria {
 	@Size(min = 3, max = 100, message = "O campo deve ter no minimo 3 caracteres e no maximo 100 caracteres")
 	private String produtos;
 
-	@NotBlank// Define que o campo é obrigatorio
+	/*@NotBlank// Define que o campo é obrigatorio
 	@Size(min = 3, max = 100, message = "O campo deve ter no minimo 3 caracteres e no maximo 100 caracteres")
-	private String cursos;
+	private String cursos;*/
 
 	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL) 
 	// uma categoria para muitos produtos, ligacao com
@@ -55,12 +55,5 @@ public class Categoria {
 		this.produtos = produtos;
 	}
 
-	public String getCursos() {
-		return cursos;
-	}
-
-	public void setCursos(String cursos) {
-		this.cursos = cursos;
-	}
 
 }
