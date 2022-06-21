@@ -1,7 +1,6 @@
 package com.generation.projetovida.model;
 
 
-import java.math.BigInteger;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -31,12 +30,10 @@ public class Usuario {
 		private String nome;
 
 		@Schema(example = "email@email.com.br")
-		@NotNull(message = "O atributo Usuário é Obrigatório!")
 		@Email (message = "O atributo Usuário deve ser um email válido!")
 		private String usuario;
 
 	
-		@NotBlank // Define que o campo não pode ter espaços vazios e em branco
 		private String senha;
 		
 		private String voluntario;
